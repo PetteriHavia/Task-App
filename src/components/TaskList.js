@@ -1,13 +1,11 @@
-import {Tabs, ListContainer, StatusBar} from './styles/style.js'
+import {ListContainer, StatusBar} from './styles/style.js'
+import Tabs from './Tabs.js';
 
-const TaskList = () => {
+const TaskList = ({tasks, setTasks}) => {
+
     return(
         <ListContainer>
-            <Tabs>
-                <h4>All</h4>
-                <h4>Active</h4>
-                <h4>Completed</h4>
-            </Tabs>
+            <Tabs tasks={tasks} setTasks={setTasks}/>
             <StatusBar>
                 <div className="active-tasks">
                     <h4>0 Active</h4>
