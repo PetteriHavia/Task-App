@@ -27,5 +27,17 @@ h4{
     font-weight: 500;
 }
 
+.content{
+    display: none;
+}
+
+.active-content{
+    display: block;
+}
+
+.active-tabs{
+    border-bottom: 3px solid #9971DC;
+}
+
 `;
 export default GlobalStyle;

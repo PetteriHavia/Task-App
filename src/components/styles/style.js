@@ -40,13 +40,29 @@ export const TaskButton = styled.button`
 
 //TaskList styles
 
-export const Tabs = styled.div`
+export const TabHeader = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin-bottom: 1rem;
   h4 {
     margin: 0rem 1.8rem;
   }
+`;
+
+export const TabContent = styled.div`
+
+`;
+
+export const AllTasks = styled.div`
+
+`;
+
+export const ActiveTasks = styled.div`
+
+`;
+
+export const CompletedTasks = styled.div`
+
 `;
 
 export const ListContainer = styled.div`
