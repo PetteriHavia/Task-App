@@ -1,5 +1,6 @@
-import { TaskContainer, TaskButton} from "./styles/style";
+import { TaskContainer, CreateTaskButton, InputContainer} from "./styles/style";
 import { useState } from "react";
+import { FiPlus } from 'react-icons/fi';
 
 const CreateTask = ({input, setInput, tasks, setTasks}) => {
 
@@ -11,13 +12,24 @@ const CreateTask = ({input, setInput, tasks, setTasks}) => {
     }
 
     const handleCreateTask = () => {
-        setTasks((prevTasks) => [...prevTasks, {text: input}]);
+        const taskExist = tasks.some((task) => task.text === input)
+        if (taskExist) {
+            setInput("");
+            setMessage("Task already exists!");
+        } else {
+            setTasks((prevTasks) => [...prevTasks, { text: input }]);
+            setMessage("Create a new task...");
+        }
     }
 
     return(
         <TaskContainer>
-            <input type="text" onChange={handleInputValue} placeholder={message}/>
-            <TaskButton onClick={handleCreateTask}>x</TaskButton>
+            <InputContainer>
+                <input type="text" value={input} onChange={handleInputValue} placeholder={message}/>
+                <CreateTaskButton onClick={handleCreateTask}>
+                    <FiPlus color="#9971DC"/>
+                </CreateTaskButton>
+            </InputContainer>
         </TaskContainer>
     )
 }

@@ -25,6 +25,11 @@ button{
 h4{
     color: #797979;
     font-weight: 500;
+    font-size: 1.1rem;
+}
+
+p{
+    color:#797979;
 }
 
 .content{
@@ -37,6 +42,10 @@ h4{
 
 .active-tabs{
     border-bottom: 3px solid #9971DC;
+}
+
+.tabs{
+    margin: 0rem 3rem
 }
 
 `;
