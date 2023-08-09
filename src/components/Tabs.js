@@ -3,7 +3,7 @@ import { useState } from 'react';
 import GlobalStyle from './styles/GlobalStyle.js';
 import { FiX } from 'react-icons/fi';
 
-const Tabs = ({tasks}) => {
+const Tabs = ({tasks, setTasks}) => {
 
     const [toggleState, setToggleState] = useState(1);
 
@@ -12,12 +12,19 @@ const Tabs = ({tasks}) => {
         setToggleState(index);
     }
 
+    const handleDeleteTask = (value) => {
+        console.log(value);
+        setTasks(items => {
+            return items.filter(tasks => tasks.text !== value);
+        })
+    }
+
     const TaskBox = ({task}) => {
         return(
             <Box>
                 <Inner>
                     <p>{task.text}</p>
-                    <DeleteButton>
+                    <DeleteButton onClick={() => handleDeleteTask(task.text)}>
                         <FiX color="#797979" />
                     </DeleteButton>
                 </Inner>
@@ -42,7 +49,7 @@ const Tabs = ({tasks}) => {
                 <p>Active Tasks</p>
             </ActiveTasks>
             <CompletedTasks className={toggleState === 3 ? "content active-content" : "content"}>
-                <h4>Completed Tasks</h4>
+                <p>Completed Tasks</p>
             </CompletedTasks>
         </TabContent>
         </>
