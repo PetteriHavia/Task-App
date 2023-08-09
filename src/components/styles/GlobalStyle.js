@@ -48,5 +48,9 @@ p{
     margin: 0rem 3rem
 }
 
+.fi{
+    
+}
+
 `;
 export default GlobalStyle;
