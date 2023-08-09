@@ -16,6 +16,8 @@ const CreateTask = ({input, setInput, tasks, setTasks}) => {
         if (taskExist) {
             setInput("");
             setMessage("Task already exists!");
+        }else if (input.length <= 0) {
+            setMessage("Input is empty");
         } else {
             setTasks((prevTasks) => [...prevTasks, { text: input }]);
             setMessage("Create a new task...");
