@@ -1,3 +1,4 @@
+import { FiCheckCircle, FiCircle } from "react-icons/fi";
 import styled from "styled-components";
 
 //Homme.js styles
@@ -71,18 +72,33 @@ export const Inner = styled.div`
   align-items: center;
 `;
 
-export const DeleteButton = styled.button`
-  background: none;
-  border: none;
-  font-size: 2rem;
+export const BoxInformation = styled.div`
   display: flex;
   align-items: center;
 `;
 
-export const AllTasks = styled.div`
+export const CheckCircle = styled(FiCheckCircle)`
+  font-size: 1.5rem;
+  color:#9971DC;
+`;
+
+export const Circle = styled(FiCircle)`
+  font-size: 1.5rem;
+  color:#797979;
+`;
+
+export const DeleteButton = styled.button`
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+`;
+
+export const Page = styled.div`
   p{
     font-size: 1.2rem;
-    padding-right: 1rem;
+    padding: 0rem 1rem;
   }
 `;
 
