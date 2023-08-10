@@ -1,6 +1,5 @@
 import {
   TabHeader,
-  TabContent,
   Page,
   Box,
   Inner,
@@ -10,12 +9,10 @@ import {
   Circle,
 } from "./styles/style.js";
 import { useState } from "react";
-import GlobalStyle from "./styles/GlobalStyle.js";
 import { FiX } from "react-icons/fi";
 
-const Tabs = ({ tasks, setTasks }) => {
+const Tabs = ({ tasks, setTasks, filterTask, setFilterTask }) => {
   const [toggleState, setToggleState] = useState(1);
-  const [filterTask, setFilterTask] = useState([]);
 
   const toggleTab = (index) => {
     setToggleState(index);
@@ -28,7 +25,6 @@ const Tabs = ({ tasks, setTasks }) => {
   };
 
   const handleFilterTasks = (task) => {
-    
     const updatedTasks = filterTask.includes(task.text)
       ? filterTask.filter((filterTask) => filterTask !== task.text)
       : [...filterTask, task.text];
@@ -45,11 +41,13 @@ const Tabs = ({ tasks, setTasks }) => {
       <Box>
         <Inner>
           <BoxInformation>
-            {isCompleted ? (
-              <CheckCircle onClick={() => handleFilterTasks(task)} />
-            ) : (
-              <Circle onClick={() =>  handleFilterTasks(task)} />
-            )}
+            <div>
+              {isCompleted ? (
+                <CheckCircle onClick={() => handleFilterTasks(task)} />
+              ) : (
+                <Circle onClick={() => handleFilterTasks(task)} />
+              )}
+            </div>
             <div>
               <p>{task.text}</p>
             </div>
@@ -84,7 +82,7 @@ const Tabs = ({ tasks, setTasks }) => {
           <h4>Completed</h4>
         </div>
       </TabHeader>
-      <TabContent>
+      <div>
         <Page
           className={toggleState === 1 ? "content active-content" : "content"}
         >
@@ -95,23 +93,18 @@ const Tabs = ({ tasks, setTasks }) => {
         <Page
           className={toggleState === 2 ? "content active-content" : "content"}
         >
-          {activeTasks.length === 0
-            ? ""
-            : activeTasks.map((task) => (
-                <TaskBox key={task.text} task={task} />
-              ))}
+          {activeTasks.map((task) => (
+            <TaskBox key={task.text} task={task} />
+          ))}
         </Page>
-
         <Page
           className={toggleState === 3 ? "content active-content" : "content"}
         >
-          {completedTasks.length === 0
-            ? ""
-            : completedTasks.map((task) => (
-                <TaskBox key={task.text} task={task} />
-              ))}
+          {completedTasks.map((task) => (
+            <TaskBox key={task.text} task={task} />
+          ))}
         </Page>
-      </TabContent>
+      </div>
     </>
   );
 };
