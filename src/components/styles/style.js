@@ -34,6 +34,10 @@ export const InputContainer = styled.div`
   align-items: center;
   width: 100%;
   padding: 0.5rem 3rem;
+
+  @media (max-width: 768px) {
+    padding: 0.5rem 1rem;
+  }
 `;
 
 export const CreateTaskButton = styled.button`
@@ -52,13 +56,19 @@ export const TabHeader = styled.div`
   display: flex;
   justify-content: center;
   padding: 0.8rem 3rem;
+
   h4 {
-    margin: 0rem 1.8rem;
+    margin: 0.7rem 1.8rem;
   }
-`;
 
-export const TabContent = styled.div`
+  @media (max-width: 768px) {
+    padding: 0.8rem 1rem;
+    justify-content: space-around;
 
+    h4 {
+      margin: 0rem 0.5rem;
+    }
+  }
 `;
 
 export const Box = styled.div`
@@ -66,10 +76,14 @@ export const Box = styled.div`
 `;
 
 export const Inner = styled.div`
-  padding: .8rem 3rem;
+  padding: 0.8rem 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 768px) {
+    padding: 0.5rem 1rem;
+  }
 `;
 
 export const BoxInformation = styled.div`
@@ -79,12 +93,12 @@ export const BoxInformation = styled.div`
 
 export const CheckCircle = styled(FiCheckCircle)`
   font-size: 1.5rem;
-  color:#9971DC;
+  color: #9971dc;
 `;
 
 export const Circle = styled(FiCircle)`
   font-size: 1.5rem;
-  color:#797979;
+  color: #797979;
 `;
 
 export const DeleteButton = styled.button`
@@ -96,23 +110,14 @@ export const DeleteButton = styled.button`
 `;
 
 export const Page = styled.div`
-  p{
+  p {
     font-size: 1.2rem;
     padding: 0rem 1rem;
   }
 `;
 
-export const ActiveTasks = styled.div`
-
-`;
-
-export const CompletedTasks = styled.div`
-
-`;
-
 export const ListContainer = styled.div`
   margin-top: 2rem;
-  //padding: 1.5rem 3rem;
   box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
   max-width: 700px;
@@ -131,5 +136,9 @@ export const StatusBar = styled.div`
     color: #797979;
     font-weight: 500;
     font-size: 1.1rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.8rem 1rem;
   }
 `;
