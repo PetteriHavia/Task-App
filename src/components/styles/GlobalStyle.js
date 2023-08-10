@@ -48,8 +48,10 @@ p{
     margin: 0rem 3rem
 }
 
-.fi{
-    
+@media (max-width: 768px) {
+    .tabs{
+        margin: 0rem 1rem;
+    }
 }
 
 `;
